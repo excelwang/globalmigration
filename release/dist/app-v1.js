@@ -201,7 +201,7 @@ n([i],i.dx*i.dy/i.value),(a?e:t)(i),h&&(a=u),u}var a,o=ta.layout.hierarchy(),c=M
               var target = subgroups['target' + '-' + i + "-" + j];
               chords.push({
                 id: 'source-' + indices[i] + "-" + indices[j],
-                source: {
+                target: {
                   id: indices[source.index],
                   region: region(indices[source.index]),
                   index: source.index,
@@ -210,7 +210,7 @@ n([i],i.dx*i.dy/i.value),(a?e:t)(i),h&&(a=u),u}var a,o=ta.layout.hierarchy(),c=M
                   endAngle: source.startAngle + source.dAngle,
                   value: source.value
                 },
-                target: {
+                source: {
                   id: indices[target.index],
                   region: region(indices[target.index]),
                   index: target.index,
@@ -412,13 +412,14 @@ n([i],i.dx*i.dy/i.value),(a?e:t)(i),h&&(a=u),u}var a,o=ta.layout.hierarchy(),c=M
       var s = subgroup(this, source, d, i),
           t = subgroup(this, target, d, i, true,1-arrowRatio);
 
-
       if (equals(s, t)) {
-        s.a1 = s.a1 - (s.a1 - s.a0) / 2;
-        s.p1 = [s.r * Math.cos(s.a1), s.r * Math.sin(s.a1)];
+        s.a0 = s.a1 + (s.a1 - s.a0) / 2;
+        s.p0 = [s.r * Math.cos(s.a0), s.r * Math.sin(s.a0)];
 
-        t.a0 = t.a0 + (t.a1 - t.a0) / 2;
-        t.p0 = [t.r * Math.cos(t.a0), t.r * Math.sin(t.a0)];
+        t.a1 = t.a0 - (t.a1 - t.a0) / 2;
+        t.p1 = [t.r * Math.cos(t.a1), t.r * Math.sin(t.a1)];
+        t.aMid=(t.a1-t.a0)/2+t.a0;
+        t.pMid= [r * Math.cos(t.aMid), r * Math.sin(t.aMid)]
       }
 
       var ccp = cubic_control_points(s, t, s.r * 0.618);
@@ -633,7 +634,7 @@ n([i],i.dx*i.dy/i.value),(a?e:t)(i),h&&(a=u),u}var a,o=ta.layout.hierarchy(),c=M
     config.arcWidth = config.arcWidth || 24;
     config.innerRadius = config.innerRadius || (config.outerRadius - config.arcWidth);
     config.arcPadding = config.arcPadding || 0.005;
-    config.sourcePadding = config.sourcePadding || 0;
+    config.sourcePadding = config.sourcePadding || -1;
     config.targetPadding = config.targetPadding || 2;
     config.labelPadding = config.labelPadding || 10;
     config.labelRadius = config.labelRadius || (config.outerRadius + config.labelPadding);
