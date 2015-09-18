@@ -1,0 +1,27 @@
+﻿1、Flow Data for Online Viz Version2.csv
+	
+	originregion_id：迁出区域的id
+	originregion_name：迁出区域名称
+	destinationregion_id：迁入区域的id
+	destinationregion_name：迁入区域名称
+	regionflow_1990：区域迁移数量（1990）
+	regionflow_1995：区域迁移数量（1995）
+	regionflow_2000：区域迁移数量（2000）
+	regionflow_2005：区域迁移数量（2005）
+	xxx：（留空）
+	origin_iso：迁出国家名称简写
+	origin_name：迁出国家名称
+	destination_iso：迁入国家名称简写
+	destination_name：迁入国家名称
+	countryflow_1990：国家迁移数量（1990）
+	countryflow_1995：国家迁移数量（1995）
+	countryflow_2000：国家迁移数量（2000）
+	countryflow_2005：国家迁移数量（2005）
+	origin_show：(该栏位已弃用)
+	destination_show：(该栏位已弃用)
+
+2、countries Version2.csv，用于过滤掉某些国家
+
+	iso：名称简写,用于关联“Flow Data for Online Viz Version2.csv”中的国家
+	name：名称
+	show：是否统计这个国家 (1 = yes; 0 = no)

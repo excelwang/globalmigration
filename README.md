@@ -25,6 +25,11 @@ For development you can compile a small excerpt using the `--sample` switch:
 grunt --sample
 ```
 
+### Publish
+cp -rf index.html dist json release/
+tar -cvzf release.tar.gz release
+Then, download release.tar.gz to your web container.
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 Lint your code using [Grunt](http://gruntjs.com/).
