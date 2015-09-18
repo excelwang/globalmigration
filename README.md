@@ -26,8 +26,10 @@ grunt --sample
 ```
 
 ### Publish
-cp -rf index.html dist json release/
+```javascript
+cp -rf index.html index-clean.html dist json release/;
 tar -cvzf release.tar.gz release
+```
 Then, download release.tar.gz to your web container.
 
 ## Contributing
