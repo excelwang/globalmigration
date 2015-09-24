@@ -750,7 +750,8 @@ n([i],i.dx*i.dy/i.value),(a?e:t)(i),h&&(a=u),u}var a,o=ta.layout.hierarchy(),c=M
         .attr('preserveAspectRatio', 'xMidYMid')
         .attr('viewBox', '0 0 ' + config.width + ' ' + config.height)
         .attr("width", config.width)
-        .attr("height", config.height);
+        .attr("height", config.height)
+	.style("background-color","#121212");
     var element = svg.append("g")
         .attr("id", "circle")
         .attr("transform", "translate(" + config.width / 2 + "," + config.height / 2 + ")");
